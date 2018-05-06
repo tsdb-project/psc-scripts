@@ -17,6 +17,7 @@ date
 
 mkdir -p $DATASET_EXTRACT_PATH
 tar xvf $DATASET_ROOTDIR/$DATASET_TAR_NAME --overwrite -C $DATASET_EXTRACT_PATH
+chmod 0440 "$DATASET_EXTRACT_PATH/*"
 
 date
 echo "Unzipping for # $DATASET_NAME successfully finished."
