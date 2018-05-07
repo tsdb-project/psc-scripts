@@ -14,9 +14,9 @@ start_time=$(date "+%H%M%S")
 log_path="$logbase_path/$start_date"
 mkdir -p "$log_path"
 log_name="$log_path/$start_time.log"
-host_name="$logbase_path/$start_date-$start_time.host"
+host_name="$log_path/$start_time.host"
 
-hostname > $host_name
+hostname | tee $host_name
 date
 echo "BrainFlux and InfluxDB is running with load conf when you see this..."
 
