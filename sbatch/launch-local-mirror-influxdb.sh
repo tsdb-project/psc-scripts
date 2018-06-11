@@ -1,10 +1,15 @@
 #!/bin/bash
 #SBATCH -N 1
-#SBATCH --ntasks-per-node 3
+#SBATCH --ntasks-per-node 10
 #SBATCH -p RM-small
-#SBATCH -C EGRESS
-#SBATCH -t 3:00:00
-#SBATCH --mail-type=ALL
+#SBATCH -t 4:00:00
+#SBATCH --mem 44000MB
+
+##################################################################
+#               !!!!    Important Notice    !!!!                 #
+#    Stop a job using this command to avoid data corruption:     #
+#               scancel --signal=TERM -v $job_id                 #
+##################################################################
 
 ulimit -n 4096
 
@@ -18,12 +23,6 @@ log_name="$log_path/$start_time.log"
 host_name="$log_path/$start_time.host"
 
 hostname | tee $host_name
-date
-echo "BrainFlux and InfluxDB is running with oper conf when you see this..."
-
-java -jar /pylon5/bi5fpep/quz3/brain-flux-0.0.1-SNAPSHOT.jar --machine=realpsc &
 
 cd /pylon5/bi5fpep/yiz141/idb_deploy
 ./idb_152_02d7d -config oper.ini > $log_name 2>&1
-
-date
