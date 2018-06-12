@@ -1,12 +1,10 @@
 #!/bin/bash
-#SBATCH --ntasks-per-node 16
-#SBATCH -p RM-shared
-#SBATCH -C EGRESS
+#SBATCH -N 1
+#SBATCH -p RM
 #SBATCH -t 48:00:00
-#SBATCH --mem=70400
 #SBATCH --mail-type=ALL
 
-ulimit -n 4096
+ulimit -n 16384
 
 logbase_path="/pylon5/bi5fpep/yiz141/influxdb/log_load"
 start_date=$(date "+%Y%m%d")
@@ -22,6 +20,4 @@ date
 echo "InfluxDB is running with load conf when you see this, for edge loading only..."
 
 cd /pylon5/bi5fpep/yiz141/idb_deploy
-./idb_152_02d7d -config load.ini > $log_name 2>&1
-
-date
+./idb_153_89e08 -config load.ini > $log_name 2>&1
