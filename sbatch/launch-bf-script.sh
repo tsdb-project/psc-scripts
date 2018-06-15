@@ -5,6 +5,8 @@
 #SBATCH -t 40:00:00
 #SBATCH --mail-type=ALL
 
+# !!!This script has been deprecated!!!
+
 ulimit -n 4096
 
 logbase_path="/pylon5/bi5fpep/yiz141/influxdb/log_load"
