@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH -N 1
-#SBATCH --ntasks-per-node 12
+#SBATCH --ntasks-per-node 14
 #SBATCH -p RM-shared
 #SBATCH -t 48:00:00
 #SBATCH --mail-type=ALL

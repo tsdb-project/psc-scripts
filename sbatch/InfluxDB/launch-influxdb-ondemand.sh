@@ -16,18 +16,20 @@ log_name="$log_path/$start_dt.log"
 host_file="$log_path/nowhost"
 pid_file="$log_path/nowpid"
 
-hostname > $host_file
-
 # Try for clean shutdown (KILL a DB is a very very bad idea)
 
 termHandler() {
   kill -TERM "$pid" 2>/dev/null
   rm -f $host_file
   rm -f $pid_file
+  echo "SIGTERM sent"
 }
 trap 'termHandler' HUP INT QUIT PIPE TERM
 
 ./influxd -pidfile $pid_file -config oper.ini > $log_name 2>&1 &
 
-pid=$!
+hostname > $host_file
+sleep 5s
+pid=$(cat $pid_file)
 wait "$pid"
+sleep 10s
