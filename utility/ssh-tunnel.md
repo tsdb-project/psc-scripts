@@ -2,17 +2,24 @@
 
 ## Commands
 
-- From PSC DB to local (Remote on 8080, Local on 10080)
+- From PSC DB to local brainflux (Remote on 8080, Local on 10080)
 
 ```shell
 ssh -N -L localhost:10080:xxx.pvt.bridges.psc.edu:8080 xxx@bridges.psc.edu
 ```
 
-- From local to routing server (Remote on 10080, Local on 10099)
+- From local brainflux to routing server (Remote on 10080, Local on 10099)
 
 ```shell
 ssh -N -R 127.0.0.1:10099:127.0.0.1:10080 xxx@xxxx.xxx
 ```
+
+## Notes
+
+**Local** means where `sshd` runs, **remote** means where `ssh` runs.
+
+- Local (Outgoing): Listen on **remote**, tunnel from **local**.
+- Remote (Incoming): Tunnel from **local**, listen on **remote**.
 
 ## Reference
 
