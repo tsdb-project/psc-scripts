@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH -N 1
-#SBATCH --ntasks-per-node 10
+#SBATCH --ntasks-per-node 8
 #SBATCH -p RM-small
 #SBATCH -t 4:00:00
-#SBATCH --mem 44000MB
+#SBATCH --mem 35200MB
 
 ##################################################################
 #               !!!!    Important Notice    !!!!                 #
@@ -13,7 +13,7 @@
 
 ulimit -n 4096
 
-logbase_path="/pylon5/bi5fpep/yiz141/influxdb/log_oper"
+logbase_path="/pylon5/bi5fpep/quz3/oper_log"
 start_date=$(date "+%Y%m%d")
 start_time=$(date "+%H%M%S")
 
@@ -24,5 +24,5 @@ host_name="$log_path/$start_time.host"
 
 hostname | tee $host_name
 
-cd /pylon5/bi5fpep/yiz141/idb_deploy
-./idb_152_02d7d -config oper.ini > $log_name 2>&1
+cd /pylon5/bi5fpep/quz3/idb162
+./influxd -config oper.ini > $log_name 2>&1
