@@ -2,10 +2,10 @@
 
 ## Commands
 
-- From PSC DB to local brainflux (Remote on 8080, Local on 10080)
+- From PSC DB to local brainflux (Remote on 8086, Local on 8086)
 
 ```shell
-ssh -N -L localhost:10080:xxx.pvt.bridges.psc.edu:8080 xxx@bridges.psc.edu
+ssh -N -L localhost:8086:rxxx.pvt.bridges.psc.edu:8086 xxx@bridges.psc.edu
 ```
 
 - From local brainflux to routing server (Remote on 10080, Local on 10099)
