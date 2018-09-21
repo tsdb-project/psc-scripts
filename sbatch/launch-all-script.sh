@@ -21,4 +21,14 @@ echo "BrainFlux and InfluxDB is running with load conf when you see this..."
 java -jar /pylon5/bi5fpep/yiz141/brain-flux-1.0.0.jar --machine=realpsc --soft-timeout-sleep=15 --load=2.5 &
 
 cd /pylon5/bi5fpep/quz3/idb162
-./influxd -config load.ini > $log_name 2>&1
+
+termHandler() {
+  kill -TERM "$pid" 2>/dev/null
+}
+trap 'termHandler' HUP INT QUIT PIPE TERM
+
+./influxd -config load.ini > $log_name 2>&1 &
+
+pid=$!
+wait "$pid"
+

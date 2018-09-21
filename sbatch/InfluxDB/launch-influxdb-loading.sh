@@ -2,7 +2,6 @@
 #SBATCH -N 1
 #SBATCH --ntasks-per-node 12
 #SBATCH -p RM-shared
-#SBATCH --mem 52800MB
 #SBATCH -t 48:00:00
 #SBATCH --mail-type=ALL
 
@@ -23,4 +22,12 @@ hostname | tee $host_name
 echo "InfluxDB is running with load conf when you see this..."
 
 cd /pylon5/bi5fpep/quz3/idb162
-./influxd -config load.ini > $log_name 2>&1
+termHandler() {
+  kill -TERM "$pid" 2>/dev/null
+}
+trap 'termHandler' HUP INT QUIT PIPE TERM
+
+./influxd -config load.ini > $log_name 2>&1 &
+
+pid=$!
+wait "$pid"

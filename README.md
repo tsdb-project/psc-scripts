@@ -14,6 +14,7 @@
 
 - <https://www.psc.edu/bridges/user-guide/running-jobs>
 - <http://hpc.pku.edu.cn/guide_sbatch.html?jmohlngdjekngdbi>
+- <https://unix.stackexchange.com/questions/146756/forward-sigterm-to-child-in-bash>
 
 ## Notice
 
