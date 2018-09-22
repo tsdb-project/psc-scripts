@@ -10,7 +10,7 @@ ulimit -n 16384
 cd /pylon5/bi5fpep/quz3/idb162/
 
 log_path="/pylon5/bi5fpep/quz3/ondemand_log"
-start_dt=$(date "+%Y%m%d%H%M%S")
+start_dt=$(date "+%Y%m%d_%H%M%S")
 
 log_name="$log_path/$start_dt.log"
 host_file="$log_path/nowhost"
@@ -18,11 +18,17 @@ pid_file="$log_path/nowpid"
 
 # Try for clean shutdown (KILL a DB is a very very bad idea)
 
-termHandler() {
-  kill -TERM "$pid" 2>/dev/null
+cleanup() {
   rm -f $host_file
   rm -f $pid_file
-  echo "SIGTERM sent"
+  gzip "$log_name"
+  echo "Cleaned up."
+}
+
+termHandler() {
+  kill -TERM "$pid" 2>/dev/null
+  cleanup
+  echo "SIGTERM received and processed."
 }
 trap 'termHandler' HUP INT QUIT PIPE TERM
 
@@ -32,4 +38,4 @@ hostname > $host_file
 sleep 5s
 pid=$(cat $pid_file)
 wait "$pid"
-sleep 10s
+cleanup
