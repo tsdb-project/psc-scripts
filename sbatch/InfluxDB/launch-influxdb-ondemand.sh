@@ -16,6 +16,12 @@ log_name="$log_path/$start_dt.log"
 host_file="$log_path/nowhost"
 pid_file="$log_path/nowpid"
 
+# If host file exists, then InfluxDB is running and we should not start a new one
+if [ -f $host_file ]; then
+   echo "Host file exists, InfluxDB is running now!"
+   exit 1
+fi
+
 # Try for clean shutdown (KILL a DB is a very very bad idea)
 
 cleanup() {
