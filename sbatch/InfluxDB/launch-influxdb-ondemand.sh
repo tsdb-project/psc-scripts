@@ -1,7 +1,6 @@
 #!/bin/bash
 #SBATCH -N 1
-#SBATCH --ntasks-per-node 12
-#SBATCH -p RM-shared
+#SBATCH -p RM
 #SBATCH -t 48:00:00
 
 # Script for RPC starting
