@@ -6,7 +6,7 @@
 # Script for RPC starting
 
 ulimit -n 16384
-cd /pylon5/bi5fpep/quz3/idb162/
+cd /pylon5/bi5fpep/quz3/idb163/
 
 log_path="/pylon5/bi5fpep/quz3/ondemand_log"
 start_dt=$(date "+%Y%m%d_%H%M%S")
