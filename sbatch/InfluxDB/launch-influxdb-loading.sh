@@ -21,7 +21,7 @@ host_name="$log_path/$start_time.host"
 hostname | tee $host_name
 echo "InfluxDB is running with load conf when you see this..."
 
-cd /pylon5/bi5fpep/quz3/idb162
+cd /pylon5/bi5fpep/quz3/idb163
 termHandler() {
   kill -TERM "$pid" 2>/dev/null
 }
