@@ -20,7 +20,7 @@ echo "BrainFlux and InfluxDB is running with load conf when you see this..."
 
 java -jar /pylon5/bi5fpep/yiz141/brain-flux-1.0.0.jar --machine=realpsc --soft-timeout-sleep=15 --load=2.5 &
 
-cd /pylon5/bi5fpep/quz3/idb162
+cd /pylon5/bi5fpep/quz3/idb163
 
 termHandler() {
   kill -TERM "$pid" 2>/dev/null
