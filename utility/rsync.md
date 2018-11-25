@@ -9,3 +9,9 @@ Haven't tested yet in our environment, but previous experience proved this worki
 ```shell
 rsync -avzP -e 'ssh xxx' xxx@bridges.psc.edu:/pylon5/bi5fpep/yiz141/idb_runtime/ /home/bak
 ```
+
+- Copy from one folder to other
+
+```shell
+rsync -aP /pylon5/bi5fpep/yiz141/idb_runtime/data/ $RAMDISK
+```
