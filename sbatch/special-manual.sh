@@ -10,5 +10,7 @@ ulimit -n 65535
 
 hostname
 date
+echo "RAMDISK path:" $RAMDISK
+echo "Local path:" $LOCAL
 echo "Special RM, please use SSH"
 env sleep 3d

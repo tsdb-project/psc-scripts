@@ -21,6 +21,9 @@ if [ -f $host_file ]; then
    exit 1
 fi
 
+echo "RAMDISK path:" $RAMDISK
+echo "Local path:" $LOCAL
+
 # Try for clean shutdown (KILL a DB is a very very bad idea)
 
 cleanup() {
