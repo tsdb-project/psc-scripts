@@ -5,7 +5,7 @@
 #SBATCH -t 48:00:00
 #SBATCH --mail-type=ALL
 
-ulimit -n 16384
+ulimit -n 65535
 
 logbase_path="/pylon5/bi5fpep/quz3/batch_log"
 start_date=$(date "+%Y%m%d")

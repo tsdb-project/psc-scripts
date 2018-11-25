@@ -6,7 +6,7 @@
 
 # DO WHAT EVER YOU WANT TO DO MANUALLY
 
-ulimit -n 16384
+ulimit -n 65535
 
 hostname
 date

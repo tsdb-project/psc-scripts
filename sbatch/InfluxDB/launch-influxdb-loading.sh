@@ -7,7 +7,7 @@
 
 # This is the latest start script for running loading config for InfluxDB
 
-ulimit -n 16384
+ulimit -n 65535
 
 logbase_path="/pylon5/bi5fpep/quz3/batch_log"
 start_date=$(date "+%Y%m%d")
