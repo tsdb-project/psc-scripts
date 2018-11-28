@@ -23,7 +23,7 @@ done
 RC=1
 n=0
 while [[ $RC -ne 0 && $n -lt 20 ]]; do
-    rsync -aPHS rsync -aPHS /pylon5/bi5fpep/yiz141/idb_runtime/data $RAMDISK/
+    rsync -aPHS /pylon5/bi5fpep/yiz141/idb_runtime/data $RAMDISK/
     RC=$?
     let n = n + 1
     sleep 10
